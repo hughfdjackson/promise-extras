@@ -1,0 +1,29 @@
+{
+  "name": "@hughfdjackson/promise-extras",
+  "version": "1.0.0",
+  "description": "ES2015's missing Promise utilities",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hughfdjackson/promise-extras.git"
+  },
+  "keywords": [
+    "Promise",
+    "ES6",
+    "ES2015"
+  ],
+  "author": "hughfdjackson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hughfdjackson/promise-extras/issues"
+  },
+  "homepage": "https://github.com/hughfdjackson/promise-extras#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "mocha": "^2.2.5"
+  }
+}
