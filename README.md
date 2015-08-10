@@ -51,7 +51,7 @@ pe.array.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
 
 ### .array.rejected
 
-Like [.array.fulfilled](#.array.fulfilled), but resolves with only those inputs that become rejected. 
+Like [.array.fulfilled](#arrayfulfilled), but resolves with only those inputs that become rejected. 
 
 ```javascript
 var pe = require('promise-extras');
