@@ -8,7 +8,7 @@ chai.should();
 
 var pe = require('../');
 
-describe('Functions that work on an array of Promises', function(){
+describe('Array of Promises functions', function(){
   describe('allSettled', allSettledTests);
   describe('fulfilled', fulfilledTests);
   describe('rejected', rejectedTests);

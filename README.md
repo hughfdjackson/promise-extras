@@ -39,8 +39,6 @@ In keeping with ES2015's `Promise.all`, it implicitly converts 'regular' values 
 Returns an array containing values for only those inputs that fulfilled.
 
 ```javascript
-var pe = require('promise-extras');
-
 pe.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
   .then(console.log);
 
@@ -54,12 +52,67 @@ pe.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
 Like [.fulfilled](#fulfilled), but resolves with only those inputs that become rejected.
 
 ```javascript
-var pe = require('promise-extras');
-
 pe.rejected([Promise.resolve(1), Promise.reject(2), 3])
   .then(console.log);
 
 /* console.log:
   [2]
 */
+```
+
+
+## Object of Promises
+
+### objectAll
+
+Equivalent to `Promise.all`, but accepting and returning an object instead.  As with `Promise.all`, any non-promise value is automatically treated as a fulfilled Promise.
+
+```javascript
+pe.objectAll({
+    x: Promise.resolve(1),
+    y: Promise.resolve(2),
+    z: 3
+  })
+  .then(console.log);
+
+/* console.log:
+  {
+    x: 1,
+    y: 2,
+    z: 3
+  }
+*/
+```
+
+The returned Promise will become rejected whenever any of the Promises.  As with `Promise.all`, it has fail-fast semantics, reporting only the first error that occurred.  
+
+```javascript
+pe.objectAll({
+    x: Promise.resolve(1),
+    y: pe.delay(100).then(function(){ throw 2 }),
+    z: Promise.reject(3)
+  })
+  .catch(console.error);
+
+/* console.error:
+  3
+*/
+```
+
+## Creating Promises
+
+### delay
+
+Creates a Promise that becomes fulfilled after *at least* the specified number of milliseconds.
+
+```javascript
+var startTime = Date.now();
+
+pe.delay(100).then(function(){
+    console.log('Delayed by ', Date.now() - startTime);
+  });
+
+/* example console.log:
+  104
+/*
 ```
