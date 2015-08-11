@@ -1,6 +1,6 @@
 {
   "name": "@hughfdjackson/promise-extras",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "ES2015's missing Promise utilities",
   "main": "src/index.js",
   "scripts": {
