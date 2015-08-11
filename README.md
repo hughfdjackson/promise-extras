@@ -99,6 +99,47 @@ pe.objectAll({
 */
 ```
 
+### objectFulfilled
+
+The object equivalent of [fulfilled](#fulfilled).
+
+```javascript
+pe.objectFulfilled({
+    x: Promise.resolve(1),
+    y: Promise.reject(2),
+    z: 3
+  })
+  .then(console.log);
+
+/* console.log:
+  {
+    x: 1,
+    z: 3
+  }
+*/
+```
+
+Note that if all inputs become rejected, the Promise `objectFulfilled` returns will fullfil with an empty object.
+
+### objectRejected
+
+The object equivalent of [rejected](#rejected).
+
+```javascript
+pe.objectRejected({
+    x: Promise.resolve(1),
+    y: Promise.reject(2),
+    z: 3
+  })
+  .then(console.log)
+
+/* console.log:
+  {
+    y: 2
+  }
+*/
+```
+
 ## Creating Promises
 
 ### delay

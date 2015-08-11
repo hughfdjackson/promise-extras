@@ -10,6 +10,8 @@ module.exports = {
   rejected: arrayOfPromises.rejected,
 
   objectAll: objectOfPromises.objectAll,
-
+  objectFulfilled: objectOfPromises.objectFulfilled,
+  objectRejected: objectOfPromises.objectRejected,
+  
   delay: createPromises.delay
 };
