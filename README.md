@@ -1,7 +1,15 @@
 
 JavaScript's core libraries tend to be quite spare - and [ES2015's Promise](http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects) is no exception.  It packs in just *two* utilities to work with multiple Promises (`.all` and `.race`).  `promise-extras` delivers the rest as a library.
 
-This library assumes there is a `Promise` constructor in global scope.  If you don't have one, you can include [es6-promise](https://github.com/jakearchibald/es6-promise).
+This library assumes there is a `Promise` constructor in global scope.  If you don't have one, you can include [es6-promise](https://github.com/jakearchibald/es6-promise).  It also assumes that ES5 methods are available.  If you need to support pre-ES5 environment, you may need to include [es5-shim](https://github.com/es-shims/es5-shim).
+
+# Installation
+
+## npm
+
+```
+npm install @hughfdjackson/promise-extras
+```
 
 # API
 
