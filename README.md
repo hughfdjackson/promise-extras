@@ -36,7 +36,6 @@ pe.array.allSettled([Promise.resolve(1), Promise.reject(2), 3])
     state: 'fulfilled',
     value: 3
   }];
-
 */
 ```
 
