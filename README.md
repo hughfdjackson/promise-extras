@@ -20,7 +20,7 @@ npm install @hughfdjackson/promise-extras
 Like [Q's .allSettled](https://github.com/kriskowal/q/wiki/API-Reference#promiseallsettled), takes an array of Promises and fulfills with an array describing the state of each of its inputs once they have settled.
 
 ```javascript
-var pe = require('promise-extras');
+var pe = require('@hughfdjackson/promise-extras');
 
 pe.array.allSettled([Promise.resolve(1), Promise.reject(2), 3])
   .then(console.log);
