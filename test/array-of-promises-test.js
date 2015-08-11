@@ -6,9 +6,9 @@ var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 chai.should();
 
-var array = require('../').array;
+var pe = require('../');
 
-describe('array', function(){
+describe('Functions that work on an array of Promises', function(){
   describe('allSettled', allSettledTests);
   describe('fulfilled', fulfilledTests);
   describe('rejected', rejectedTests);
@@ -19,7 +19,7 @@ function fulfilledTests(){
   it('should return a Promise containing the results of only those inputs that fulfilled', function(){
     var inputs = [Promise.resolve(1), Promise.reject(2), 3];
 
-    return array.fulfilled(inputs).should.eventually.eql([1, 3]);
+    return pe.fulfilled(inputs).should.eventually.eql([1, 3]);
   });
 }
 
@@ -27,7 +27,7 @@ function rejectedTests(){
   it('should return a Promise containing results of only those inputs that rejected', function(){
     var inputs = [Promise.resolve(1), Promise.reject(2), 3];
 
-    return array.rejected(inputs).should.eventually.eql([2]);
+    return pe.rejected(inputs).should.eventually.eql([2]);
   });
 }
 
@@ -45,7 +45,7 @@ function allSettledTests(){
       value: 3
     }];
 
-    return array.allSettled(inputs).should.eventually.eql(expectedOutput);
+    return pe.allSettled(inputs).should.eventually.eql(expectedOutput);
   });
 
   it('should return a Promise of rejected results when all inputs become rejected', function(){
@@ -61,7 +61,7 @@ function allSettledTests(){
       reason: 3
     }];
 
-    return array.allSettled(inputs).should.eventually.eql(expectedOutput);
+    return pe.allSettled(inputs).should.eventually.eql(expectedOutput);
   });
 
   it('should return a Promise of mixed results when the inputs resolve with mixed results', function(){
@@ -77,7 +77,7 @@ function allSettledTests(){
       value: 3
     }];
 
-    return array.allSettled(inputs).should.eventually.eql(expectedOutput);
+    return pe.allSettled(inputs).should.eventually.eql(expectedOutput);
   });
 
   it('should implicitly convert non-Promise values to resolved promises', function(){
@@ -93,7 +93,6 @@ function allSettledTests(){
       value: 3
     }];
 
-    return array.allSettled(inputs).should.eventually.eql(expectedOutput);
-
+    return pe.allSettled(inputs).should.eventually.eql(expectedOutput);
   });
 }

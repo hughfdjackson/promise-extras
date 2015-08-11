@@ -1,5 +1,9 @@
 'use strict';
 
+var arrayOfPromises = require('./array-of-promises');
+
 module.exports = {
-  array: require('./array')
+  allSettled: arrayOfPromises.allSettled,
+  fulfilled: arrayOfPromises.fulfilled,
+  rejected: arrayOfPromises.rejected,
 };

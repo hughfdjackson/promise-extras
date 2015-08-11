@@ -5,9 +5,9 @@ This library assumes there is a `Promise` constructor in global scope.  If you d
 
 # API
 
-## .array
+## Array of Promises
 
-### .array.allSettled
+### allSettled
 
 Like [Q's .allSettled](https://github.com/kriskowal/q/wiki/API-Reference#promiseallsettled), takes an array of Promises and fulfills with an array describing the state of each of its inputs once they have settled.
 
@@ -34,14 +34,14 @@ pe.array.allSettled([Promise.resolve(1), Promise.reject(2), 3])
 
 In keeping with ES2015's `Promise.all`, it implicitly converts 'regular' values to Promises via `Promise.resolve`.
 
-### .array.fulfilled
+### fulfilled
 
 Returns an array containing values for only those inputs that fulfilled.
 
 ```javascript
 var pe = require('promise-extras');
 
-pe.array.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
+pe.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
   .then(console.log);
 
 /* console.log:
@@ -49,14 +49,14 @@ pe.array.fulfilled([Promise.resolve(1), Promise.reject(2), 3])
 */
 ```
 
-### .array.rejected
+### rejected
 
-Like [.array.fulfilled](#arrayfulfilled), but resolves with only those inputs that become rejected.
+Like [.fulfilled](#fulfilled), but resolves with only those inputs that become rejected.
 
 ```javascript
 var pe = require('promise-extras');
 
-pe.array.rejected([Promise.resolve(1), Promise.reject(2), 3])
+pe.rejected([Promise.resolve(1), Promise.reject(2), 3])
   .then(console.log);
 
 /* console.log:
